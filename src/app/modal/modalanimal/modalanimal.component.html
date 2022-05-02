@@ -1,0 +1,37 @@
+<form [formGroup]="profileForm" class="form-container">
+    <mat-card>
+        <mat-card-header>Питомец</mat-card-header>
+        <mat-card-content>
+    <div name="firstStep" class="col-md-6"> 
+    <mat-form-field class="full-width">
+        <mat-label>Вид</mat-label>
+        <input formControlName="kind" matInput placeholder="Вид">
+    </mat-form-field>
+    </div>
+    <div name="firstStep">
+    <mat-form-field class="full-width">
+        <mat-label>Порода</mat-label>
+        <input formControlName="breed" matInput  placeholder="Порода">
+    </mat-form-field>
+    </div>
+    <div name="firstStep">
+    <mat-form-field class="full-width">
+        <mat-label>Кличка</mat-label>
+        
+        <input formControlName="name" matInput placeholder="Кличка">
+    </mat-form-field>
+    </div>
+    <div name="firstStep">
+        <mat-form-field>
+            <ngx-mat-file-input #removableInput formControlName="img" placeholder="Фото"></ngx-mat-file-input>
+            <button mat-icon-button matSuffix *ngIf="!removableInput.empty" (click)="removableInput.clear($event)">
+              <mat-icon>clear</mat-icon>
+            </button>
+          </mat-form-field>
+    </div>
+</mat-card-content>
+<mat-card-actions>
+    <button (click)="addAnimal()"  mat-raised-button color="primary" >Submit</button>
+    </mat-card-actions>
+    </mat-card>
+</form>
