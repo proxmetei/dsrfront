@@ -14,7 +14,11 @@ export class AnimalcardComponent implements OnInit {
     // var img = document.getElementById("animalCardImg");
     // img?.setAttribute('src', url);
     let reader = new FileReader();
-   
+    // console.log(this.animal.img.files[0])
+    const file = this.animal.img.files[0];
+    const formData = new FormData();
+    formData.append("thumbnail", file);
+    console.log(formData);
     reader.readAsDataURL(this.animal.img.files[0]); 
     var img = document.getElementById("animalCardImg");
     reader.addEventListener("load", function () {

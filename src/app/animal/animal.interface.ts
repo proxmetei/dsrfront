@@ -7,4 +7,6 @@ export interface IAnimal
   breed:string;
   name: string;
   img: FileInput;
+  file: File;
+  fd: FormData;
 }

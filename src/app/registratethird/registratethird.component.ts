@@ -33,7 +33,7 @@ export class RegistratethirdComponent implements OnInit {
   }
   registrate()
   {
-    this.dataService.register();
+    this.dataService.register().subscribe((res)=>{ console.log(res)});
     console.log(this.dataService.user);
   }
 }

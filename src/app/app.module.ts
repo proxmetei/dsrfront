@@ -19,6 +19,7 @@ import { MaterialFileInputModule } from 'ngx-material-file-input';
 import {UserService} from './user.service';
 import { AnimalcardComponent } from './animalcard/animalcard.component';
 import { LoginComponent } from './login/login.component';
+import {HttpClientModule} from '@angular/common/http';
 // import {} from '@angular/material/input';
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { LoginComponent } from './login/login.component';
     MatButtonModule,
     MatCardModule,
     MatIconModule,
-    MaterialFileInputModule
+    MaterialFileInputModule,
+    HttpClientModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]

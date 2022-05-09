@@ -1,17 +1,28 @@
 import { Injectable } from '@angular/core';
 import {IUser} from './user/user.interface';
 import {IAnimal} from './animal/animal.interface';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {map,observable} from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-
+  constructor( private http: HttpClient) {}
   id: number=0;
   animals: IAnimal[] =[];
   user: IUser= {};
-  addAnimal(animal: IAnimal){
+  async addAnimal(animal: IAnimal){
     this.id++;
     animal.id = this.id;
+    // let reader = new FileReader();
+    // reader.readAsDataURL(animal.img.files[0]); 
+    // reader.addEventListener("load", function () {
+    //  animal.url=reader.result?.toString()!;
+    // }, false);
+    animal.file = animal.img.files[0];
+    animal.fd = new FormData();
+    animal.fd.append("file", animal.file, animal.file.name); 
+    console.log(animal.img.files[0])
     this.animals.push(animal);
   }
   setFirstStep(login: string, email: string, password: string){
@@ -24,10 +35,11 @@ export class UserService {
     this.user.name = name;
  }
  register(){
-
+let headers = new HttpHeaders();
+headers.append('Content-Type', 'application/json');
+return this.http.post('http://localhost:5000/api/user/register', {user : this.user, animals: this.animals}, {headers: headers});
  }
  login(login: string, password:string){
    
 }
-  constructor() { }
 }
