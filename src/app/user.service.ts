@@ -14,15 +14,17 @@ export class UserService {
   async addAnimal(animal: IAnimal){
     this.id++;
     animal.id = this.id;
-    // let reader = new FileReader();
-    // reader.readAsDataURL(animal.img.files[0]); 
-    // reader.addEventListener("load", function () {
-    //  animal.url=reader.result?.toString()!;
-    // }, false);
-    animal.file = animal.img.files[0];
-    animal.fd = new FormData();
-    animal.fd.append("file", animal.file, animal.file.name); 
-    console.log(animal.img.files[0])
+    let reader = new FileReader();
+    reader.readAsDataURL(animal.img.files[0]); 
+    reader.addEventListener("load", function () {
+     animal.url=reader.result?.toString()!;
+     console.log(animal.url);
+    }, false);
+
+    // animal.file = animal.img.files[0];
+    // animal.fd = new FormData();
+    // animal.fd.append("file", animal.file, animal.file.name); 
+    animal.img_name = animal.img.files[0].name;
     this.animals.push(animal);
   }
   setFirstStep(login: string, email: string, password: string){
@@ -40,6 +42,9 @@ headers.append('Content-Type', 'application/json');
 return this.http.post('http://localhost:5000/api/user/register', {user : this.user, animals: this.animals}, {headers: headers});
  }
  login(login: string, password:string){
-   
+  let headers = new HttpHeaders();
+  console.log(login);
+  headers.append('Content-Type', 'application/json');
+  return this.http.post('http://localhost:5000/api/user/login', {login : login, password: password}, {headers: headers});
 }
 }
