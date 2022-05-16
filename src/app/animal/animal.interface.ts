@@ -1,5 +1,5 @@
 import { FileInput } from "ngx-material-file-input";
-
+import {IDocument} from '../document/document.interface';
 export interface IAnimal
 {
   id: number;
@@ -11,5 +11,7 @@ export interface IAnimal
   // fd: FormData;
   img_name: String;
   url: string;
-  // data: Buffer;
+  document: IDocument; 
+  userId: number;
+  myId: number;
 }

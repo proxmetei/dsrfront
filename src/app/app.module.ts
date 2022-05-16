@@ -16,10 +16,17 @@ import { RegistratethirdComponent } from './registratethird/registratethird.comp
 import { ModalanimalComponent } from './modal/modalanimal/modalanimal.component';
 import {MatIconModule} from '@angular/material/icon';
 import { MaterialFileInputModule } from 'ngx-material-file-input';
+import {MatToolbarModule} from '@angular/material/toolbar'
 import {UserService} from './user.service';
 import { AnimalcardComponent } from './animalcard/animalcard.component';
 import { LoginComponent } from './login/login.component';
 import {HttpClientModule} from '@angular/common/http';
+import { LkComponent } from './lk/lk.component';
+import {IsLoggedInGuard} from './guards/isLogged.guard';
+import { HeaderComponent } from './header/header.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatListModule} from '@angular/material/list';
+import { AnimalwallComponent } from './animalwall/animalwall.component';
 // import {} from '@angular/material/input';
 @NgModule({
   declarations: [
@@ -29,7 +36,10 @@ import {HttpClientModule} from '@angular/common/http';
     RegistratethirdComponent,
     ModalanimalComponent,
     AnimalcardComponent,
-    LoginComponent
+    LoginComponent,
+    LkComponent,
+    HeaderComponent,
+    AnimalwallComponent
   ],
   imports: [
     BrowserModule,
@@ -43,9 +53,12 @@ import {HttpClientModule} from '@angular/common/http';
     MatCardModule,
     MatIconModule,
     MaterialFileInputModule,
-    HttpClientModule
+    HttpClientModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule
   ],
-  providers: [UserService],
+  providers: [UserService,IsLoggedInGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

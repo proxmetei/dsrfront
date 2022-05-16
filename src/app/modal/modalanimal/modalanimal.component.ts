@@ -19,8 +19,8 @@ export class ModalanimalComponent implements OnInit {
   ngOnInit(): void {
   }
   
-  addAnimal(){
-    this.dataService.addAnimal(this.profileForm.value);
+  async addAnimal(){
+    await this.dataService.addAnimal(this.profileForm.value);
     console.log(this.dataService.animals)
     this.submitModal.emit();
   }

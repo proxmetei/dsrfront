@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewContainerRef, ViewChild, ComponentFactoryResolver, ComponentFactory, } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import {ModalanimalComponent} from '../modal/modalanimal/modalanimal.component';
 import {UserService} from '../user.service';
@@ -12,7 +13,7 @@ export class RegistratethirdComponent implements OnInit {
 
   animals!: IAnimal[]
   @ViewChild('modalForAnimal', { read: ViewContainerRef }) containerAnimal!: { clear: () => void; createComponent: (arg0: ComponentFactory<ModalanimalComponent>) => any; };
-  constructor(private resolver: ComponentFactoryResolver, private dataService: UserService) { }
+  constructor(private resolver: ComponentFactoryResolver, private dataService: UserService, private router: Router) { }
 
   ngOnInit(): void {
     this.animals=[];
@@ -35,5 +36,6 @@ export class RegistratethirdComponent implements OnInit {
   {
     this.dataService.register().subscribe((res)=>{ console.log(res)});
     console.log(this.dataService.user);
+    this.router.navigate(['/lk']);
   }
 }
