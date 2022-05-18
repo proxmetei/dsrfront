@@ -134,6 +134,9 @@ logout(){
 isLoggedIn(){
   return !helper.isTokenExpired(localStorage.getItem('token')!);
 }
+isAdmin(){
+  return JSON.parse(localStorage.getItem("user")!).role=='ADMIN';
+}
 getUserInfo(login: string){
   console.log(1);
   let headers_object = new HttpHeaders({

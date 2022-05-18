@@ -27,6 +27,7 @@ import { HeaderComponent } from './header/header.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import { AnimalwallComponent } from './animalwall/animalwall.component';
+import { AdminService } from './admin.service';
 // import {} from '@angular/material/input';
 @NgModule({
   declarations: [
@@ -58,7 +59,7 @@ import { AnimalwallComponent } from './animalwall/animalwall.component';
     MatSidenavModule,
     MatListModule
   ],
-  providers: [UserService,IsLoggedInGuard],
+  providers: [UserService,IsLoggedInGuard,AdminService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

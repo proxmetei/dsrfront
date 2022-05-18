@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AdminService } from './admin.service';
 import { UserService } from './user.service';
 
 @Component({
@@ -8,11 +9,15 @@ import { UserService } from './user.service';
 })
 export class AppComponent implements OnInit{
   title = 'dsrclient';
-  constructor(private dataSrvice: UserService){}
+  constructor(private userService: UserService, private adminService: AdminService){}
   ngOnInit(): void {
-      if(this.dataSrvice.isLoggedIn()){
+      if(this.userService.isLoggedIn()&&JSON.parse(localStorage.getItem("user")!).role=='USER'){
         console.log(11);
-        this.dataSrvice.setUserInfo(JSON.parse(localStorage.getItem("user")!).login.toString());
+        this.userService.setUserInfo(JSON.parse(localStorage.getItem("user")!).login.toString());
+      }
+      else if(this.userService.isLoggedIn()&&this.userService.isAdmin())
+      {
+        this.adminService.setUsersInfo();
       }
   }
 }
