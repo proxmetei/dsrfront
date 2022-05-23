@@ -4,29 +4,35 @@
         <mat-card-content>
     <div name="firstStep" class="col-md-6"> 
     <mat-form-field class="full-width">
-        <mat-label>Login</mat-label>
-        <input formControlName="login" matInput placeholder="Login">
+        <mat-label>ФИО</mat-label>
+        <input formControlName="fio" matInput placeholder="ФИО">
     </mat-form-field>
     </div>
     <div name="firstStep">
     <mat-form-field class="full-width">
-        <mat-label>Email</mat-label>
-        <input formControlName="email" matInput  placeholder="Email">
+        <mat-label>Phone</mat-label>
+        <input formControlName="phone" matInput  placeholder="Phone">
     </mat-form-field>
     </div>
     <div name="firstStep">
     <mat-form-field class="full-width">
-        <mat-label>Password</mat-label>
+        <mat-label>Experience</mat-label>
         
-        <input type="password" formControlName="password" matInput placeholder="Password">
+        <input formControlName="experience" matInput placeholder="Experience">
     </mat-form-field>
     </div>
     <div name="firstStep">
     <mat-form-field class="full-width">
-        <mat-label>Confirm Password</mat-label>
-        <input type="password" formControlName="confirmPassword" matInput placeholder="Confirm Password">
+        <mat-label>Achivments</mat-label>
+        <input formControlName="achivments" matInput placeholder="Achivments">
     </mat-form-field>
     </div>
+    <div name="firstStep">
+        <mat-form-field class="full-width">
+            <mat-label>Виды услуг</mat-label>
+            <input formControlName="types" matInput placeholder="Виды услуг">
+        </mat-form-field>
+        </div>
 </mat-card-content>
 <mat-card-actions>
     <button (click)="goNextStep()" mat-raised-button color="primary" >Submit</button>

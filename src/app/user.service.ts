@@ -7,6 +7,7 @@ import jwt_decode from "jwt-decode";
 import { Token } from '@angular/compiler';
 import {IDocument} from './document/document.interface';
 import {JwtHelperService} from '@auth0/angular-jwt';
+import { IDoctor } from './doctor/doctor.interface';
 const helper = new JwtHelperService();
 @Injectable({
   providedIn: 'root'
@@ -19,6 +20,17 @@ export class UserService {
   token: String = "";
   userinfo$ = new BehaviorSubject<null|IUser>(null);
   animalsInfo$ = new BehaviorSubject<null|IAnimal[]>(null);
+  docsInfo$ = new BehaviorSubject<null|IDoctor[]>(null);
+  startUser()
+  {
+    this.id=0;
+    this.animalsInfo$.subscribe((animals)=>{
+       animals?.forEach((animal)=>{
+         this.id++;
+         animal.myId=this.id;
+       })
+    })
+  }
   async addAnimal(animal: IAnimal){
     console.log(1);
     this.id++;
@@ -173,6 +185,22 @@ setUserInfo(login:string){
     this.userinfo$.next(<IUser>res)}
     );
     // subscription.unsubscribe();
+}
+getDocs(){
+  let headers_object = new HttpHeaders({
+    'Content-Type': 'application/json',
+     'Authorization': "Bearer "+localStorage.getItem("token")
+  });
+
+      const httpOptions = {
+        headers: headers_object
+      };
+      console.log(httpOptions);
+  return  this.http.get('http://localhost:5000/api/user/docs',  httpOptions).subscribe((res)=>{
+    console.log(res);
+     let result = <any> res;
+     this.docsInfo$.next(<IDoctor[]> result.docs);
+  });
 }
 async check(){
   let headers_object = new HttpHeaders({

@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
 import {IAnimal} from './../animal/animal.interface';
 @Component({
@@ -8,6 +8,7 @@ import {IAnimal} from './../animal/animal.interface';
 })
 export class AnimalcardComponent implements OnInit, OnChanges {
   @Input() animal!: IAnimal;
+  @Output() onAnimalClick = new EventEmitter<IAnimal>();
   constructor(private router: Router) { }
   ngAfterViewInit(): void {
     //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
@@ -24,7 +25,7 @@ export class AnimalcardComponent implements OnInit, OnChanges {
   }
   goToAnimal(){
     console.log("nav");
-    this.router.navigate(['animalwall',{id:this.animal.myId}]);
+    this.onAnimalClick.emit(this.animal);
   }
   ngOnInit(): void {
     // let url = URL.createObjectURL(this.animal.img.files[0]);

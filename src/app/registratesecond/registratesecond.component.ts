@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../user.service';
 
@@ -12,8 +12,8 @@ export class RegistratesecondComponent implements OnInit {
 
   constructor( private formBuilder: FormBuilder, private router: Router, private dataService: UserService) { }
   profileForm = this.formBuilder.group({
-    name: [''],
-    phone: ['']
+    name: ['', [Validators.required]],
+    phone: ['', [Validators.required]]
   })
   ngOnInit(): void {
   }

@@ -14,8 +14,10 @@
         <a *ngIf="!this.dataService.isLoggedIn()"  [routerLink]="['/login']" mat-button  >Login</a>
         <a *ngIf="!this.dataService.isLoggedIn()" [routerLink]="['/register/first']" mat-button >Registrate</a>
         <a *ngIf="this.dataService.isLoggedIn()"  (click)="logout()" mat-button  >Logout</a>
-        <a *ngIf="this.dataService.isLoggedIn()&&this.dataService.isAdmin()"  (click)="logout()" mat-button  >Список пользователей</a>
-        <a mat-button (click)="this.check()">Check</a>
+        <a *ngIf="this.dataService.isLoggedIn()&&this.dataService.isAdmin()"  [routerLink]="['/userlist']" mat-button  >Список пользователей</a>
+        <a *ngIf="this.dataService.isLoggedIn()&&this.dataService.isAdmin()"  [routerLink]="['/animallist']" mat-button  >Список животных</a>
+        <a *ngIf="this.dataService.isLoggedIn()&&this.dataService.isAdmin()"  [routerLink]="['/doctoradd']" mat-button  >Добавить врача</a>
+        <a *ngIf="this.dataService.isLoggedIn()"  [routerLink]="['/doctorlist']" mat-button  >Список врачей</a>
         <!-- <a mat-button *ngIf="!this.dataService.isLoggedIn()"  [routerLink]="['/login']"> Accounts </a>
         <a mat-button [routerLink]="'/create-account'"> Create Account </a>
         <a mat-button [routerLink]="'/contacts'"> Contacts </a>

@@ -28,6 +28,13 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import { AnimalwallComponent } from './animalwall/animalwall.component';
 import { AdminService } from './admin.service';
+import { UserlistComponent } from './userlist/userlist.component';
+import { UserlistitemComponent } from './userlistitem/userlistitem.component';
+import { AnimallistComponent } from './animallist/animallist.component';
+import { DoctoraddComponent } from './doctoradd/doctoradd.component';
+import { DoclistComponent } from './doclist/doclist.component';
+import { DoclistitemComponent } from './doclistitem/doclistitem.component';
+import { DocComponent } from './doc/doc.component';
 // import {} from '@angular/material/input';
 @NgModule({
   declarations: [
@@ -40,7 +47,14 @@ import { AdminService } from './admin.service';
     LoginComponent,
     LkComponent,
     HeaderComponent,
-    AnimalwallComponent
+    AnimalwallComponent,
+    UserlistComponent,
+    UserlistitemComponent,
+    AnimallistComponent,
+    DoctoraddComponent,
+    DoclistComponent,
+    DoclistitemComponent,
+    DocComponent,
   ],
   imports: [
     BrowserModule,

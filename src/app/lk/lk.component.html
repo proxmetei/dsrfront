@@ -35,7 +35,7 @@
     </mat-form-field>
     </div> -->
     <div class="stack">
-    <app-animalcard class="add-button margin-card" mat-card-content  *ngFor="let n of this.animals" [animal]="n" ></app-animalcard>
+    <app-animalcard class="add-button margin-card" mat-card-content  *ngFor="let n of this.animals" [animal]="n" (onAnimalClick)="this.navigateToAnimal($event)"  ></app-animalcard>
         <button *ngIf="this.edit" class="add-button" (click)="addAnimal()"    mat-raised-button matSuffix>
           <mat-icon>add</mat-icon>
         </button>
