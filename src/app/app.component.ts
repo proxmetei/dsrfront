@@ -11,6 +11,7 @@ export class AppComponent implements OnInit{
   title = 'dsrclient';
   constructor(private userService: UserService, private adminService: AdminService){}
   ngOnInit(): void {
+      this.userService.check();
       if(this.userService.isLoggedIn()&&JSON.parse(localStorage.getItem("user")!).role=='USER'){
         this.userService.setUserInfo(JSON.parse(localStorage.getItem("user")!).login.toString());
       }

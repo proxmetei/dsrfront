@@ -211,6 +211,9 @@ export class UserService {
     const httpOptions = {
       headers: headers_object
     };
-    return this.http.get('http://localhost:5000/api/user/auth', httpOptions);
+    return this.http.get('http://localhost:5000/api/user/auth', httpOptions).subscribe((res)=>{}, (error) => {
+      this.errorHandler.handleError(error);
+      this.errorMessage = this.errorHandler.errorMessage;
+    });
   }
 }
