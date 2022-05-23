@@ -1,51 +1,43 @@
 <form [formGroup]="profileForm" class="form-container">
-
     <mat-card-header>Информация</mat-card-header>
     <mat-card-content>
-<div name="firstStep" class="col-md-6"> 
-<mat-form-field class="full-width">
-    <mat-label>Login</mat-label>
-    <input [readonly]="!this.edit" id="login" formControlName="login" matInput placeholder="Login">
-</mat-form-field>
-</div>
-<div name="firstStep">
-<mat-form-field class="full-width">
-    <mat-label>Email</mat-label>
-    <input [readonly]="true" id="email" formControlName="email" matInput  placeholder="Email">
-</mat-form-field>
-</div>
-<div>
-<mat-form-field class="full-width">
-    <mat-label>Phone</mat-label>
-    <input [readonly]="!this.edit" id="phone" formControlName="phone" matInput placeholder="Phone">
-</mat-form-field>
-</div>
-<div name="firstStep">
-<mat-form-field class="full-width">
-    <mat-label>Name</mat-label>
-    <input [readonly]="!this.edit" id="name" formControlName="name" matInput  placeholder="Name">
-</mat-form-field>
-</div>
-
-
-<!-- <div name="secondStep" class="not-disp">
-    <mat-form-field class="full-width">
-        <mat-label>Name</mat-label>
-        <input formControlName="name" matInput placeholder="Name">
-    </mat-form-field>
-    </div> -->
-    <div class="stack">
-    <app-animalcard class="add-button margin-card" mat-card-content  *ngFor="let n of this.animals" [animal]="n" (onAnimalClick)="this.navigateToAnimal($event)"  ></app-animalcard>
-        <button *ngIf="this.edit" class="add-button" (click)="addAnimal()"    mat-raised-button matSuffix>
-          <mat-icon>add</mat-icon>
-        </button>
-    </div>
-</mat-card-content>
-<mat-card-actions class="edit-container">
-<button *ngIf="!this.edit" (click)="this.startEdit()" mat-raised-button color="primary" >Edit</button>
-<button *ngIf="this.edit" (click)="this.stopEdit()" mat-raised-button color="primary" >Cancel</button>
-<button *ngIf="this.edit" (click)="this.submit()" mat-raised-button color="primary" >Submit</button>
-</mat-card-actions>
+        <div name="firstStep" class="col-md-6">
+            <mat-form-field class="full-width">
+                <mat-label>Login</mat-label>
+                <input [readonly]="!this.edit" id="login" formControlName="login" matInput placeholder="Login">
+            </mat-form-field>
+        </div>
+        <div name="firstStep">
+            <mat-form-field class="full-width">
+                <mat-label>Email</mat-label>
+                <input [readonly]="true" id="email" formControlName="email" matInput placeholder="Email">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field class="full-width">
+                <mat-label>Phone</mat-label>
+                <input [readonly]="!this.edit" id="phone" formControlName="phone" matInput placeholder="Phone">
+            </mat-form-field>
+        </div>
+        <div name="firstStep">
+            <mat-form-field class="full-width">
+                <mat-label>Name</mat-label>
+                <input [readonly]="!this.edit" id="name" formControlName="name" matInput placeholder="Name">
+            </mat-form-field>
+        </div>
+        <div class="stack">
+            <app-animalcard class="add-button margin-card" mat-card-content *ngFor="let n of this.animals" [animal]="n"
+                (AnimalClick)="this.navigateToAnimal($event)"></app-animalcard>
+            <button *ngIf="this.edit" class="add-button" (click)="addAnimal()" mat-raised-button matSuffix>
+                <mat-icon>add</mat-icon>
+            </button>
+        </div>
+    </mat-card-content>
+    <mat-card-actions class="edit-container">
+        <button *ngIf="!this.edit" (click)="this.startEdit()" mat-raised-button color="primary">Edit</button>
+        <button *ngIf="this.edit" (click)="this.stopEdit()" mat-raised-button color="primary">Cancel</button>
+        <button *ngIf="this.edit" (click)="this.submit()" mat-raised-button color="primary">Submit</button>
+    </mat-card-actions>
 
 </form>
 <div id="bg"></div>

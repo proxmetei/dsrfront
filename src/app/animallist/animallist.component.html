@@ -1,1 +1,4 @@
-<div><app-animalcard class="add-button margin-card" mat-card-content  *ngFor="let n of this.animals" [animal]="n" (onAnimalClick)="this.navigateToAnimal($event)"  ></app-animalcard></div>
+<div>
+    <app-animalcard class="add-button margin-card" mat-card-content *ngFor="let n of this.animals" [animal]="n"
+        (onAnimalClick)="this.navigateToAnimal($event)"></app-animalcard>
+</div>

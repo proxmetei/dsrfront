@@ -1,53 +1,37 @@
-
-      
-
-            <form [formGroup]="profileForm" class="form-container">
-
-               
-                
-
-                    <img  class="img" mat-card-image id="img">
-             <div class="inps">
-    <div name="firstStep" class="col-md-6 inp"> 
-    <mat-form-field class="full-width">
-        <mat-label>Кличка</mat-label>
-        <input [readonly]="!this.edit" id="name" formControlName="name" matInput placeholder="Name">
-    </mat-form-field>
-    </div>
-    <div name="firstStep">
-    <mat-form-field class="full-width">
-        <mat-label>Вид</mat-label>
-        <input [readonly]="true" id="kind" formControlName="kind" matInput  placeholder="Kind">
-    </mat-form-field>
-    </div>
-    <div>
-    <mat-form-field class="full-width">
-        <mat-label>Порода</mat-label>
-        <input [readonly]="!this.edit" id="breed" formControlName="breed" matInput placeholder="Breed">
-    </mat-form-field>
-    </div>
-    <div *ngIf="this.edit" name="firstStep">
-        <mat-form-field>
-            <ngx-mat-file-input #removableInput formControlName="img" placeholder="Фото"></ngx-mat-file-input>
-            <button mat-icon-button matSuffix *ngIf="!removableInput.empty" (click)="removableInput.clear($event)">
-              <mat-icon>clear</mat-icon>
-            </button>
-          </mat-form-field>
-    </div>
-    
-    
-    <!-- <div name="secondStep" class="not-disp">
-        <mat-form-field class="full-width">
-            <mat-label>Name</mat-label>
-            <input formControlName="name" matInput placeholder="Name">
-        </mat-form-field>
-        </div> -->
-    <!-- </mat-card-content> -->
+<form [formGroup]="profileForm" class="form-container">
+    <img class="img" mat-card-image id="img">
+    <div class="inps">
+        <div name="firstStep" class="col-md-6 inp">
+            <mat-form-field class="full-width">
+                <mat-label>Кличка</mat-label>
+                <input [readonly]="!this.edit" id="name" formControlName="name" matInput placeholder="Name">
+            </mat-form-field>
+        </div>
+        <div name="firstStep">
+            <mat-form-field class="full-width">
+                <mat-label>Вид</mat-label>
+                <input [readonly]="true" id="kind" formControlName="kind" matInput placeholder="Kind">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field class="full-width">
+                <mat-label>Порода</mat-label>
+                <input [readonly]="!this.edit" id="breed" formControlName="breed" matInput placeholder="Breed">
+            </mat-form-field>
+        </div>
+        <div *ngIf="this.edit" name="firstStep">
+            <mat-form-field>
+                <ngx-mat-file-input #removableInput formControlName="img" placeholder="Фото"></ngx-mat-file-input>
+                <button mat-icon-button matSuffix *ngIf="!removableInput.empty" (click)="removableInput.clear($event)">
+                    <mat-icon>clear</mat-icon>
+                </button>
+            </mat-form-field>
+        </div>
     </div>
     <mat-card-actions class="edit-container">
-    <button *ngIf="!this.edit" (click)="this.startEdit()" mat-raised-button color="primary" >Edit</button>
-    <button *ngIf="this.edit" (click)="this.stopEdit()" mat-raised-button color="primary" >Cancel</button>
-    <button *ngIf="this.edit" (click)="this.submit()" mat-raised-button color="primary" >Submit</button>
+        <button *ngIf="!this.edit" (click)="this.startEdit()" mat-raised-button color="primary">Edit</button>
+        <button *ngIf="this.edit" (click)="this.stopEdit()" mat-raised-button color="primary">Cancel</button>
+        <button *ngIf="this.edit" (click)="this.submit()" mat-raised-button color="primary">Submit</button>
     </mat-card-actions>
-    
+
 </form>

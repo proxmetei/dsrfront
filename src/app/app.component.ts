@@ -12,7 +12,6 @@ export class AppComponent implements OnInit{
   constructor(private userService: UserService, private adminService: AdminService){}
   ngOnInit(): void {
       if(this.userService.isLoggedIn()&&JSON.parse(localStorage.getItem("user")!).role=='USER'){
-        console.log(11);
         this.userService.setUserInfo(JSON.parse(localStorage.getItem("user")!).login.toString());
       }
       else if(this.userService.isLoggedIn()&&this.userService.isAdmin())

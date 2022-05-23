@@ -1,14 +1,9 @@
-<!-- <mat-toolbar-row>
-    <a *ngIf="!this.dataService.isLoggedIn()"  [routerLink]="['/login']" mat-stroked-button color="primary" >Login</a>
-    <a *ngIf="!this.dataService.isLoggedIn()" [routerLink]="['/register/first']" mat-stroked-button color="primary" >Registrate</a>
-    <a *ngIf="this.dataService.isLoggedIn()"  (click)="logout()" mat-stroked-button color="primary" >Logout</a>
-</mat-toolbar-row> -->
 <mat-toolbar color="primary">
     <mat-toolbar-row>
       <button *ngIf="this.dataService.isLoggedIn()"   mat-icon-button>
         <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
       </button>
-      <h1>VetClinik</h1>
+      <h1 (click)="this.homeNav()">VetClinik</h1>
       <span class="menu-spacer"></span>
       <div>
         <a *ngIf="!this.dataService.isLoggedIn()"  [routerLink]="['/login']" mat-button  >Login</a>
@@ -18,35 +13,16 @@
         <a *ngIf="this.dataService.isLoggedIn()&&this.dataService.isAdmin()"  [routerLink]="['/animallist']" mat-button  >Список животных</a>
         <a *ngIf="this.dataService.isLoggedIn()&&this.dataService.isAdmin()"  [routerLink]="['/doctoradd']" mat-button  >Добавить врача</a>
         <a *ngIf="this.dataService.isLoggedIn()"  [routerLink]="['/doctorlist']" mat-button  >Список врачей</a>
-        <!-- <a mat-button *ngIf="!this.dataService.isLoggedIn()"  [routerLink]="['/login']"> Accounts </a>
-        <a mat-button [routerLink]="'/create-account'"> Create Account </a>
-        <a mat-button [routerLink]="'/contacts'"> Contacts </a>
-        <a mat-button [routerLink]="'/create-contact'"> Create Contact </a>
-        <a mat-button [routerLink]="'/activities'"> Activities </a>
-        <a mat-button [routerLink]="'/create-activity'"> Create Activity </a> -->
-  
+        <a *ngIf="this.dataService.isLoggedIn()&&!this.dataService.isAdmin()"  [routerLink]="['/sessionreg']" mat-button  >Запись к врачу</a>
       </div>
     </mat-toolbar-row>
-  
-    <!-- <mat-toolbar-row>
-        <span style="font-size: 12px;">SimpleCRM helps you easily manage your contacts</span>
-      </mat-toolbar-row> -->
   </mat-toolbar>
   <mat-sidenav-container  [hidden]="this.dataService.isLoggedIn()">
     <mat-sidenav #sidenav  >
       <mat-nav-list>
   
         <a mat-list-item [routerLink]="'/lk'">Profile</a>
-
-
-        <!-- <a mat-list-item [routerLink]="'/create-account'"> Create Account </a>
-        <a mat-list-item [routerLink]="'/contacts'"> Contacts </a>
-        <a mat-list-item [routerLink]="'/create-contact'"> Create Contact </a>
-        <a mat-list-item [routerLink]="'/activities'"> Activities </a>
-        <a mat-list-item [routerLink]="'/create-activity'"> Create Activity </a> -->
         <a *ngIf="this.dataService.isLoggedIn()"  (click)="logout()" mat-list-item   >Logout</a>
-        <!-- <a (click)="this.closeSidenav()" mat-list-item>Close</a> -->
-  
       </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>

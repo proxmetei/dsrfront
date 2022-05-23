@@ -1,0 +1,4 @@
+<div class="stack">
+    <app-animalcard class="add-button margin-card" mat-card-content *ngFor="let n of this.animals" [animal]="n"
+        (onAnimalClick)="this.navigateToNextStep($event)"></app-animalcard>
+</div>

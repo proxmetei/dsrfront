@@ -1,9 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import {MatDatepickerModule} from '@angular/material/datepicker';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
-// import { RegistrateComponent } from './registrate/registrate.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
@@ -35,7 +34,13 @@ import { DoctoraddComponent } from './doctoradd/doctoradd.component';
 import { DoclistComponent } from './doclist/doclist.component';
 import { DoclistitemComponent } from './doclistitem/doclistitem.component';
 import { DocComponent } from './doc/doc.component';
-// import {} from '@angular/material/input';
+import { SessionregComponent } from './sessionreg/sessionreg.component';
+import { SessionregsecondComponent } from './sessionregsecond/sessionregsecond.component';
+import { SessionregthirdComponent } from './sessionregthird/sessionregthird.component';
+import { HomeComponent } from './home/home.component';
+import { InternalServerComponent } from './error-pages/internal-server/internal-server.component';
+import { NotFoundComponent } from './error-pages/not-found/not-found.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,6 +60,12 @@ import { DocComponent } from './doc/doc.component';
     DoclistComponent,
     DoclistitemComponent,
     DocComponent,
+    SessionregComponent,
+    SessionregsecondComponent,
+    SessionregthirdComponent,
+    HomeComponent,
+    InternalServerComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -71,7 +82,8 @@ import { DocComponent } from './doc/doc.component';
     HttpClientModule,
     MatToolbarModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    MatDatepickerModule,
   ],
   providers: [UserService,IsLoggedInGuard,AdminService],
   bootstrap: [AppComponent]

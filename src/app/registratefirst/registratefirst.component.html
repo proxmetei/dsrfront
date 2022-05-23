@@ -2,34 +2,34 @@
     <mat-card>
         <mat-card-header>Информация</mat-card-header>
         <mat-card-content>
-    <div name="firstStep" class="col-md-6"> 
-    <mat-form-field class="full-width">
-        <mat-label>Login</mat-label>
-        <input formControlName="login" matInput placeholder="Login">
-    </mat-form-field>
-    </div>
-    <div name="firstStep">
-    <mat-form-field class="full-width">
-        <mat-label>Email</mat-label>
-        <input formControlName="email" matInput  placeholder="Email">
-    </mat-form-field>
-    </div>
-    <div name="firstStep">
-    <mat-form-field class="full-width">
-        <mat-label>Password</mat-label>
-        
-        <input type="password" formControlName="password" matInput placeholder="Password">
-    </mat-form-field>
-    </div>
-    <div name="firstStep">
-    <mat-form-field class="full-width">
-        <mat-label>Confirm Password</mat-label>
-        <input type="password" formControlName="confirmPassword" matInput placeholder="Confirm Password">
-    </mat-form-field>
-    </div>
-</mat-card-content>
-<mat-card-actions>
-    <button (click)="goNextStep()" mat-raised-button color="primary" >Submit</button>
-    </mat-card-actions>
+            <div name="firstStep" class="col-md-6">
+                <mat-form-field class="full-width">
+                    <mat-label>Login</mat-label>
+                    <input formControlName="login" matInput placeholder="Login">
+                </mat-form-field>
+            </div>
+            <div name="firstStep">
+                <mat-form-field class="full-width">
+                    <mat-label>Email</mat-label>
+                    <input formControlName="email" matInput placeholder="Email">
+                </mat-form-field>
+            </div>
+            <div name="firstStep">
+                <mat-form-field class="full-width">
+                    <mat-label>Password</mat-label>
+
+                    <input type="password" formControlName="password" matInput placeholder="Password">
+                </mat-form-field>
+            </div>
+            <div name="firstStep">
+                <mat-form-field class="full-width">
+                    <mat-label>Confirm Password</mat-label>
+                    <input type="password" formControlName="confirmPassword" matInput placeholder="Confirm Password">
+                </mat-form-field>
+            </div>
+        </mat-card-content>
+        <mat-card-actions>
+            <button (click)="goNextStep()" mat-raised-button color="primary">Submit</button>
+        </mat-card-actions>
     </mat-card>
 </form>

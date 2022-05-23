@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewContainerRef, ViewChild, ComponentFactoryResolver, ComponentFactory, } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import {ModalanimalComponent} from '../modal/modalanimal/modalanimal.component';
-import {UserService} from '../user.service';
-import {IAnimal} from './../animal/animal.interface';
+import { ModalanimalComponent } from '../modal/modalanimal/modalanimal.component';
+import { UserService } from '../user.service';
+import { IAnimal } from './../animal/animal.interface';
 @Component({
   selector: 'app-registratethird',
   templateUrl: './registratethird.component.html',
@@ -16,12 +16,11 @@ export class RegistratethirdComponent implements OnInit {
   constructor(private resolver: ComponentFactoryResolver, private dataService: UserService, private router: Router) { }
 
   ngOnInit(): void {
-    this.animals=[];
+    this.animals = [];
   }
-  addAnimal(){
+  addAnimal() {
     let bg = document.getElementById("bg");
     bg?.classList.add("bg");
-    console.log(1)
     this.containerAnimal.clear();
     const modalFactoryNote = this.resolver.resolveComponentFactory(ModalanimalComponent);
     const n = this.containerAnimal.createComponent(modalFactoryNote);
@@ -32,10 +31,9 @@ export class RegistratethirdComponent implements OnInit {
       bg?.classList.remove("bg");
     });
   }
-  registrate()
-  {
-    this.dataService.register().subscribe((res)=>{ console.log(res)});
-    console.log(this.dataService.user);
+  registrate() {
+    this.dataService.register().subscribe((res) => { });
+
     this.router.navigate(['/lk']);
   }
 }

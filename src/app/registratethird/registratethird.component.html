@@ -1,23 +1,18 @@
-<form  class="form-container">
+<form class="form-container">
     <mat-card>
         <mat-card-header>Регистрация: Шаг 3</mat-card-header>
         <mat-card-content>
-    <!-- <div name="secondStep" class="not-disp">
-        <mat-form-field class="full-width">
-            <mat-label>Name</mat-label>
-            <input formControlName="name" matInput placeholder="Name">
-        </mat-form-field>
-        </div> -->
-        <div class="stack">
-        <app-animalcard  class="add-button margin-card" mat-card-content  *ngFor="let n of animals" [animal]="n" ></app-animalcard>
-            <button class="add-button" (click)="addAnimal()"  mat-raised-button matSuffix>
-              <mat-icon>add</mat-icon>
-            </button>
-        </div>
-</mat-card-content>
-<mat-card-actions>
-    <button (click)="registrate()"  mat-raised-button color="primary" >Submit</button>
-    </mat-card-actions>
+            <div class="stack">
+                <app-animalcard class="add-button margin-card" mat-card-content *ngFor="let n of animals" [animal]="n">
+                </app-animalcard>
+                <button class="add-button" (click)="addAnimal()" mat-raised-button matSuffix>
+                    <mat-icon>add</mat-icon>
+                </button>
+            </div>
+        </mat-card-content>
+        <mat-card-actions>
+            <button (click)="registrate()" mat-raised-button color="primary">Submit</button>
+        </mat-card-actions>
     </mat-card>
 </form>
 <div id="bg"></div>

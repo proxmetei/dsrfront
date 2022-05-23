@@ -14,13 +14,12 @@ export class DoclistComponent implements OnInit {
 
   ngOnInit(): void {
     this.userService.getDocs();
-    this.userService.docsInfo$.subscribe((docs)=>{
-      this.docs=docs!;
+    this.userService.docsInfo$.subscribe((docs) => {
+      this.docs = docs!;
     })
   }
-  goToDoc(user: IDoctor){
-    console.log(user.id);
-    this.router.navigate(['doc',{id:user.id}]);
-    }
+  goToDoc(user: IDoctor) {
+    this.router.navigate(['doc', { id: user.id }]);
+  }
 
 }

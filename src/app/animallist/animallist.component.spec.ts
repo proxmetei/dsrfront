@@ -8,9 +8,9 @@ describe('AnimallistComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AnimallistComponent ]
+      declarations: [AnimallistComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

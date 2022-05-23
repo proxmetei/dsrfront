@@ -1,4 +1,8 @@
-<mat-card (click)="goToAnimal()" ><mat-card-content ><img  class="img" mat-card-image id="animalCardImg{{this.animal.myId}}">
-<p>Кличка :{{this.animal.name}}</p>
-<p>Порода :{{this.animal.breed}}</p>
-<p>Вид :{{this.animal.kind}}</p></mat-card-content></mat-card>
+<mat-card (click)="goToAnimal()">
+    <mat-card-content><img class="img" mat-card-image src="{{this.animal.document.data}}"
+            id="animalCardImg{{this.animal.myId}}">
+        <p>Кличка :{{this.animal.name}}</p>
+        <p>Порода :{{this.animal.breed}}</p>
+        <p>Вид :{{this.animal.kind}}</p>
+    </mat-card-content>
+</mat-card>

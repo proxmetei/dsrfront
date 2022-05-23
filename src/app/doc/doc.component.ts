@@ -11,40 +11,42 @@ import { Subscription } from 'rxjs';
   templateUrl: './doc.component.html',
   styleUrls: ['./doc.component.scss']
 })
-export class DocComponent implements OnInit {
-  private subscription: Subscription| null = null;
-  doc: IDoctor| null =null;
-  constructor(private userService: UserService, private formBuilder: FormBuilder, private router: Router,private activateRoute: ActivatedRoute, private adminService: AdminService) {
-    if(this.userService.isAdmin())
-    {
-      
-      router.events.subscribe((route) => {
-        if (route instanceof NavigationEnd) {
-         
-          this.subscription = this.activateRoute.params.subscribe(params=>{let id=params['id'];
-          this.userService.docsInfo$.subscribe((docs)=>{
-            docs?.forEach((doc)=>{
-              if(doc.id==id){
+export class DocComponent {
+  private subscription: Subscription | null = null;
+  doc: IDoctor | null = null;
+
+
+  constructor(private userService: UserService, private formBuilder: FormBuilder, private router: Router, private activateRoute: ActivatedRoute, private adminService: AdminService) {
+
+    router.events.subscribe((route) => {
+      if (route instanceof NavigationEnd) {
+
+        this.subscription = this.activateRoute.params.subscribe(params => {
+          let id = params['id'];
+          this.userService.docsInfo$.subscribe((docs) => {
+            docs?.forEach((doc) => {
+              if (doc.id == id) {
                 this.doc = doc;
                 this.profileForm.get('fio')?.setValue(this.doc.fio);
                 this.profileForm.get('experience')?.setValue(this.doc.experience);
+                this.profileForm.get('phone')?.setValue(this.doc.phone);
+                this.profileForm.get('achivments')?.setValue(this.doc.achivments);
+                this.profileForm.get('types')?.setValue(this.doc.types);
               }
             })
           })
-        
+
         })
       }
-        });
-    }
-   }
-   profileForm = this.formBuilder.group({
-    fio:[''],
-    phone:[''],
-    experience:[''],
-    achivments:[''],
-    types:['']
-  })
-  ngOnInit(): void {
+    });
+
   }
+  profileForm = this.formBuilder.group({
+    fio: [''],
+    phone: [''],
+    experience: [''],
+    achivments: [''],
+    types: ['']
+  })
 
 }

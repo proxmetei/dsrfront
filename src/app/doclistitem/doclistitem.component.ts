@@ -6,11 +6,9 @@ import { IDoctor } from 'app/doctor/doctor.interface';
   templateUrl: './doclistitem.component.html',
   styleUrls: ['./doclistitem.component.scss']
 })
-export class DoclistitemComponent implements OnInit {
+export class DoclistitemComponent {
   @Input() doc!: IDoctor;
   constructor() { }
 
-  ngOnInit(): void {
-  }
 
 }

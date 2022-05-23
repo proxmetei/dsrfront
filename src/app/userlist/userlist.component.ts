@@ -13,13 +13,12 @@ export class UserlistComponent implements OnInit {
   constructor(private adminService: AdminService, private router: Router) { }
 
   ngOnInit(): void {
-    this.adminService.usersInfo$.subscribe((res)=>{
-       console.log(res);
-       this.users=res!;
+    this.adminService.usersInfo$.subscribe((res) => {
+      this.users = res!;
     })
   }
-  goToUser(user: IUser){
-  this.router.navigate(['lk',{id:user.id}]);
+  goToUser(user: IUser) {
+    this.router.navigate(['lk', { id: user.id }]);
   }
 
 }

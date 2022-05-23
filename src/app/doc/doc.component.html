@@ -1,30 +1,38 @@
 <form [formGroup]="profileForm" class="form-container">
 
-               
-                
-
-<div class="inps">
-<div name="firstStep" class="col-md-6 inp"> 
-<mat-form-field class="full-width">
-<mat-label> ФИО</mat-label>
-<input [readonly]="true" id="fio" formControlName="fio" matInput placeholder="ФИО">
-</mat-form-field>
-</div>
-<div name="firstStep">
-<mat-form-field class="full-width">
-<mat-label>Experience</mat-label>
-<input [readonly]="true" id="experience" formControlName="experience" matInput  placeholder="Experience">
-</mat-form-field>
-</div>
 
 
-<!-- <div name="secondStep" class="not-disp">
-<mat-form-field class="full-width">
-<mat-label>Name</mat-label>
-<input formControlName="name" matInput placeholder="Name">
-</mat-form-field>
-</div> -->
-<!-- </mat-card-content> -->
-</div>
 
+    <div class="inps">
+        <div name="firstStep" class="col-md-6 inp">
+            <mat-form-field class="full-width">
+                <mat-label> ФИО</mat-label>
+                <input [readonly]="true" id="fio" formControlName="fio" matInput placeholder="ФИО">
+            </mat-form-field>
+        </div>
+        <div name="firstStep">
+            <mat-form-field class="full-width">
+                <mat-label>Experience</mat-label>
+                <input [readonly]="true" id="experience" formControlName="experience" matInput placeholder="Experience">
+            </mat-form-field>
+        </div>
+        <div name="firstStep">
+            <mat-form-field class="full-width">
+                <mat-label>Phone</mat-label>
+                <input [readonly]="true" id="phone" formControlName="phone" matInput placeholder="Phone">
+            </mat-form-field>
+        </div>
+        <div name="firstStep">
+            <mat-form-field class="full-width">
+                <mat-label>Achivments</mat-label>
+                <input [readonly]="true" id="achivments" formControlName="achivments" matInput placeholder="Achivments">
+            </mat-form-field>
+        </div>
+        <div name="firstStep">
+            <mat-form-field class="full-width">
+                <mat-label>Виды услуг</mat-label>
+                <input [readonly]="true" id="types" formControlName="types" matInput placeholder="Виды услуг">
+            </mat-form-field>
+        </div>
+    </div>
 </form>

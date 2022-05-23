@@ -3,7 +3,7 @@ import { ViewContainerRef, ViewChild, ComponentFactoryResolver, ComponentFactory
 import { FormBuilder } from '@angular/forms';
 import { IAnimal } from '../animal/animal.interface';
 import { UserService } from '../user.service';
-import {ModalanimalComponent} from '../modal/modalanimal/modalanimal.component';
+import { ModalanimalComponent } from '../modal/modalanimal/modalanimal.component';
 import { IUser } from 'app/user/user.interface';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { AdminService } from 'app/admin.service';
@@ -13,68 +13,63 @@ import { Subscription } from 'rxjs';
   templateUrl: './lk.component.html',
   styleUrls: ['./lk.component.scss']
 })
-export class LkComponent implements OnInit, OnChanges {
-   @Input() user?: IUser;
+export class LkComponent implements OnInit {
+  @Input() user?: IUser;
   edit: boolean = false;
   animals: IAnimal[] = [];
-  private subscription: Subscription| null = null;
+  private subscription: Subscription | null = null;
   @ViewChild('modalForAnimal', { read: ViewContainerRef }) containerAnimal!: { clear: () => void; createComponent: (arg0: ComponentFactory<ModalanimalComponent>) => any; };
-  constructor(private resolver: ComponentFactoryResolver, private userService: UserService, private formBuilder: FormBuilder, private router: Router,private activateRoute: ActivatedRoute, private adminService: AdminService) {
-    if(this.userService.isAdmin())
-    {
-      
+  constructor(private resolver: ComponentFactoryResolver, private userService: UserService, private formBuilder: FormBuilder, private router: Router, private activateRoute: ActivatedRoute, private adminService: AdminService) {
+    if (this.userService.isAdmin()) {
+
       router.events.subscribe((route) => {
         if (route instanceof NavigationEnd) {
-         
-          this.subscription = this.activateRoute.params.subscribe(params=>{let id=params['id'];
-          this.adminService.usersInfo$.subscribe((users)=>{
-            users?.forEach((user)=>{
-              if(user.id==id){
-                this.userService.userinfo$.next(user);
-                this.userService.animalsInfo$.next(user.animals!);
-                this.userService.startUser();
-              }
+
+          this.subscription = this.activateRoute.params.subscribe(params => {
+            let id = params['id'];
+            this.adminService.usersInfo$.subscribe((users) => {
+              users?.forEach((user) => {
+                if (user.id == id) {
+                  this.userService.userinfo$.next(user);
+                  this.userService.animalsInfo$.next(user.animals!);
+                  this.userService.startUser();
+                }
+              })
             })
+
           })
-        
-        })
-      }
-        });
+        }
+      });
     }
-   }
+  }
   profileForm = this.formBuilder.group({
-    login:[''],
-    email:[''],
-    phone:[''],
-    name:[''],
+    login: [''],
+    email: [''],
+    phone: [''],
+    name: [''],
   })
   ngOnInit(): void {
-    this.userService.animalsInfo$.subscribe((animals)=>{
-      console.log(animals);
+    this.userService.animalsInfo$.subscribe((animals) => {
       this.animals = animals!;
     })
-    console.log(this.userService.userinfo$)
-    this.userService.userinfo$.subscribe((user)=>{
-      console.log(user);
-      if(user!=null){
+    this.userService.userinfo$.subscribe((user) => {
+      if (user != null) {
         this.profileForm.get('login')?.setValue(user?.login!);
         this.profileForm.get('name')?.setValue(user?.name!);
         this.profileForm.get('phone')?.setValue(user?.phone!);
         this.profileForm.get('email')?.setValue(user?.email!);
-      // this.dataService.animals =user.animals!;
-      this.animals = user.animals!;
+        this.animals = user.animals!;
       }
     })
   }
-  navigateToAnimal(animal: IAnimal){
-        if(!this.edit){
-        this.router.navigate(['animalwall',{id:animal.id}]);
-        }
+  navigateToAnimal(animal: IAnimal) {
+    if (!this.edit) {
+      this.router.navigate(['animalwall', { id: animal.id }]);
+    }
   }
-  addAnimal(){
+  addAnimal() {
     let bg = document.getElementById("bg");
     bg?.classList.add("bg");
-    console.log(1)
     this.containerAnimal.clear();
     const modalFactoryNote = this.resolver.resolveComponentFactory(ModalanimalComponent);
     const n = this.containerAnimal.createComponent(modalFactoryNote);
@@ -84,40 +79,26 @@ export class LkComponent implements OnInit, OnChanges {
       bg?.classList.remove("bg");
     });
   }
-  startEdit(){
-    this.edit=true;
+  startEdit() {
+    this.edit = true;
   }
-  stopEdit(){
-    this.edit=false;
-  } 
-  submit(){
-    if(this.profileForm.value.login){
-      this.userService.user.login=this.profileForm.value.login;
+  stopEdit() {
+    this.edit = false;
+  }
+  submit() {
+    if (this.profileForm.value.login) {
+      this.userService.user.login = this.profileForm.value.login;
     }
-    if(this.profileForm.value.email){
-      this.userService.user.email=this.profileForm.value.email;
+    if (this.profileForm.value.email) {
+      this.userService.user.email = this.profileForm.value.email;
     }
-    if(this.profileForm.value.name){
-      this.userService.user.name=this.profileForm.value.name;
+    if (this.profileForm.value.name) {
+      this.userService.user.name = this.profileForm.value.name;
     }
-    if(this.profileForm.value.phone){
-      this.userService.user.phone=this.profileForm.value.phone;
+    if (this.profileForm.value.phone) {
+      this.userService.user.phone = this.profileForm.value.phone;
     }
     this.userService.editUser();
   }
-ngOnChanges(): void {
-  // let loginInp: HTMLInputElement = <HTMLInputElement> document.getElementById("login");
-  //   let emailInp: HTMLInputElement =  <HTMLInputElement> document.getElementById("email");
-  //   loginInp?.toggleAttribute("readonly");
-  //   emailInp?.toggleAttribute("readonly");
-  //   console.log(this.dataService.userinfo$)
-  //   this.dataService.userinfo$.subscribe((user)=>{
-  //     console.log(user);
-  //     if(user!=null){
-  //     loginInp.value= <any>user?.login!;
-  //     emailInp.value= user?.email!;
-  //     }
-  //   })
-  
-}
+
 }

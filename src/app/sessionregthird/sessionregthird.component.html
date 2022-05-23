@@ -1,0 +1,8 @@
+<form [formGroup]="profileForm" class="form-container">
+    <mat-form-field>
+        <input matInput formControlName="date" type="datetime-local" placeholder="Session date">
+    </mat-form-field>
+    <mat-action-list>
+        <button (click)="this.sessionReg()" mat-raised-button color="primary">Register to session</button>
+    </mat-action-list>
+</form>

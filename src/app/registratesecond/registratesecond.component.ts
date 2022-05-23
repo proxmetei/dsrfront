@@ -10,14 +10,14 @@ import { UserService } from '../user.service';
 })
 export class RegistratesecondComponent implements OnInit {
 
-  constructor( private formBuilder: FormBuilder, private router: Router, private dataService: UserService) { }
+  constructor(private formBuilder: FormBuilder, private router: Router, private dataService: UserService) { }
   profileForm = this.formBuilder.group({
     name: ['', [Validators.required]],
     phone: ['', [Validators.required]]
   })
   ngOnInit(): void {
   }
-  goNextStep(){
+  goNextStep() {
     this.router.navigate(['register/third']);
     this.dataService.setSecondStep(this.profileForm.value.name, this.profileForm.value.phone);
   }

@@ -21,7 +21,6 @@ export class ModalanimalComponent implements OnInit {
   
   async addAnimal(){
     await this.dataService.addAnimal(this.profileForm.value);
-    console.log(this.dataService.animals)
     this.submitModal.emit();
   }
 }

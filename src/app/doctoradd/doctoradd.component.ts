@@ -8,7 +8,7 @@ import { AdminService } from 'app/admin.service';
   templateUrl: './doctoradd.component.html',
   styleUrls: ['./doctoradd.component.scss']
 })
-export class DoctoraddComponent implements OnInit {
+export class DoctoraddComponent   {
 
   constructor( private formBuilder: FormBuilder, private router: Router, private dataService: AdminService) { }
   profileForm = this.formBuilder.group({
@@ -19,12 +19,8 @@ export class DoctoraddComponent implements OnInit {
     types:['', [Validators.required]]
   })
 goNextStep(){
-  console.log(1);
-  // this.router.navigate(['doctorslsit']);
-  // console.log(this.profileForm.value.login, this.profileForm.value.email, this.profileForm.value.password)
   this.dataService.addDoctor(this.profileForm.value.fio, this.profileForm.value.phone, this.profileForm.value.experience, this.profileForm.value.achivments, this.profileForm.value.types);
 }
-  ngOnInit(): void {
-  }
+
 
 }

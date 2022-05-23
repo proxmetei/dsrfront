@@ -10,18 +10,17 @@ import { IUser } from 'app/user/user.interface';
   styleUrls: ['./animallist.component.scss']
 })
 export class AnimallistComponent implements OnInit {
-   animals: IAnimal[] = [];
+  animals: IAnimal[] = [];
   constructor(private adminService: AdminService, private router: Router) { }
-  navigateToAnimal(animal: IAnimal){
-    this.router.navigate(['animalwall',{id:animal.id}]);
-}
+  navigateToAnimal(animal: any) {
+    this.router.navigate(['animalwall', { id: animal.id }]);
+  }
   ngOnInit(): void {
-    this.adminService.usersInfo$.subscribe((users)=>{
-      users?.forEach((user)=>{
-        console.log(user);
-            user.animals?.forEach((animal)=>{
-                this.animals.push(animal);
-            })
+    this.adminService.usersInfo$.subscribe((users) => {
+      users?.forEach((user) => {
+        user.animals?.forEach((animal) => {
+          this.animals.push(animal);
+        })
       })
     })
   }
