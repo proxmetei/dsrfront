@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { AdminService } from 'app/admin.service';
 import { ErrorHandlerService } from 'app/error-handler.service';
 import { UserService } from '../user.service';
-import { IUser } from '../user/user.interface';
 
 @Component({
   selector: 'app-login',

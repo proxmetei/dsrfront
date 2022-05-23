@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ViewContainerRef, ViewChild, ComponentFactoryResolver, ComponentFactory, } from '@angular/core'
 import { FormBuilder } from '@angular/forms';
 import { IAnimal } from '../animal/animal.interface';

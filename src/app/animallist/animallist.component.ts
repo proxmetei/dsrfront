@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AdminService } from 'app/admin.service';
 import { IAnimal } from 'app/animal/animal.interface';
-import { IUser } from 'app/user/user.interface';
 
 @Component({
   selector: 'app-animallist',

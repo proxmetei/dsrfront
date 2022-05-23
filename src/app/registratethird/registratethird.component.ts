@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewContainerRef, ViewChild, ComponentFactoryResolver, ComponentFactory, } from '@angular/core';
 import { Router } from '@angular/router';
-import { Subscription } from 'rxjs';
 import { ModalanimalComponent } from '../modal/modalanimal/modalanimal.component';
 import { UserService } from '../user.service';
 import { IAnimal } from './../animal/animal.interface';
